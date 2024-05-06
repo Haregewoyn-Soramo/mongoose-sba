@@ -5,8 +5,9 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const port =  process.env.PORT || 3000;
 const router = require('./server/routes/main');
+const connectDB = require('./server/config/db')
 
-
+connectDB()
 process.setMaxListeners(15);
 
 app.use(express.static('public'));

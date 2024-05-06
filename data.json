@@ -1,0 +1,98 @@
+[
+  {
+    "category": "Food & Drink",
+    "title": "Avocado Toast",
+    "description": "Delicious and nutritious avocado slices on top of toasted bread, perfect for breakfast or brunch.",
+    "image": "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Food & Drink",
+    "title": "Sushi Rolls",
+    "description": "Colorful and flavorful sushi rolls with fresh fish, rice, and vegetables, a Japanese culinary delight.",
+    "image": "https://images.pexels.com/photos/1052189/pexels-photo-1052189.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Food & Drink",
+    "title": "Chocolate Cake",
+    "description": "Rich and decadent chocolate cake topped with creamy frosting, a dessert lover's dream.",
+    "image": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Food & Drink",
+    "title": "Espresso Coffee",
+    "description": "Strong and aromatic espresso coffee served in a small cup, perfect for a quick caffeine boost.",
+    "image": "https://images.pexels.com/photos/8104580/pexels-photo-8104580.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "Mountain Peak",
+    "description": "Majestic mountain peak covered in snow, offering breathtaking views and exhilarating hiking opportunities.",
+    "image": "https://images.pexels.com/photos/586687/pexels-photo-586687.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "Tropical Beach",
+    "description": "Serene tropical beach with crystal-clear blue waters and palm trees swaying in the gentle breeze, a paradise getaway.",
+    "image": "https://images.pexels.com/photos/1252500/pexels-photo-1252500.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "City Skyline",
+    "description": "Vibrant city skyline illuminated at night, showcasing modern architecture and bustling urban life.",
+    "image": "https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Travel & Adventure",
+    "title": "Historic Landmark",
+    "description": "Iconic historic landmark with intricate architectural details and a rich cultural heritage, a must-visit destination.",
+    "image": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Fashion & Style",
+    "title": "Elegant Dress",
+    "description": "Elegant and sophisticated dress with flowing fabric and intricate lace details, perfect for formal occasions.",
+    "image": "https://images.pexels.com/photos/10132991/pexels-photo-10132991.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Fashion & Style",
+    "title": "Stylish Accessories",
+    "description": "Chic and stylish accessories including statement earrings, a trendy handbag, and oversized sunglasses, perfect for adding flair to any outfit.",
+    "image": "https://images.pexels.com/photos/6932037/pexels-photo-6932037.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Fashion & Style",
+    "title": "Classic Suit",
+    "description": "Classic and timeless suit tailored to perfection, exuding confidence and professionalism.",
+    "image": "https://images.pexels.com/photos/4937220/pexels-photo-4937220.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Fashion & Style",
+    "title": "Casual Streetwear",
+    "description": "Comfortable and stylish streetwear ensemble featuring denim jeans, a graphic t-shirt, and sneakers, perfect for everyday wear.",
+    "image": "https://images.pexels.com/photos/15360025/pexels-photo-15360025/free-photo-of-man-in-a-hoodie-and-ripped-jeans-walking-in-city.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Home Decor",
+    "title": "Cozy Living Room",
+    "description": "Cozy and inviting living room with plush sofas, soft throw blankets, and warm lighting, perfect for relaxation and entertainment.",
+    "image": "https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Home Decor",
+    "title": "Minimalist Bedroom",
+    "description": "Minimalist bedroom with clean lines, neutral color palette, and sleek furniture, promoting a sense of calm and tranquility.",
+    "image": "https://images.pexels.com/photos/1099816/pexels-photo-1099816.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Home Decor",
+    "title": "Botanical Prints",
+    "description": "Botanical prints featuring lush greenery and vibrant flowers, adding a touch of nature to any space.",
+    "image": "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "category": "Home Decor",
+    "title": "Vintage Furniture",
+    "description": "Vintage-inspired furniture with distressed finishes and ornate details, adding charm and character to any room.",
+    "image": "https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?auto=compress&cs=tinysrgb&w=600"
+  }
+]

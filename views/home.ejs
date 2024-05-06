@@ -1,1 +1,55 @@
-<h2>home</h2>
+<style>
+  .collections{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+  }
+  .collections li{
+    list-style:none;
+    flex-basis: calc(33.3%-10px);
+    max-width: calc(33.3%-10px);
+    border-radius: 10px;
+    overflow: hidden;
+    
+  }
+
+  .collections li img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+  .title{
+    margin: 5px 0;
+  }
+
+  @media only screen and (min-width:768px) {
+    .collections li{
+      flex-basis: calc(25%-15px);
+      flex-basis: calc(25%-15px);
+    }
+  }
+</style>
+
+<div class="collections">
+  <ul class="gallery">
+
+     <% collections.forEach(item => { %>
+
+      <li>
+        <img src="<%= item.image %>" alt="<%= item.title %>">
+        <span class="title"><%= item.title %></span>
+        <a href="#"><p><%= item.description %></p></a>
+         <p><%= item.category %></p>
+         <p><%= item.CreatedAt %></p>
+      </li>
+      
+     <% }) %>
+  </ul>
+  <a href="#">&lt; View all collections</a>
+</div>
+

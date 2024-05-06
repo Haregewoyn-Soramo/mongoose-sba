@@ -283,7 +283,10 @@
        }
        }
  
-       /* lets go style Sign In page */
+      .footer{
+        margin: 30px;
+        text-align: center;
+      }
     
      
  
