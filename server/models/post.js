@@ -51,7 +51,57 @@ const UserSchema = new Schema({
     default: Date.now
   }
 })
+
+const accountSchema = new Schema({
+  username:{
+    type: "String",
+    required: true
+  },
+  email:{
+    type: "String",
+    required: true
+  },
+  password:{
+    type: "String",
+    required: true
+  },
+  CreatedAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  },
+  profile: {
+    fullName: {
+      type: String,
+      default: ''
+    },
+    bio: {
+      type: String,
+      default: ''
+    },
+    profileImage: {
+      type: String,
+      default: '/default-profile-image.jpg'
+    }
+  },  
+    followers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }],
+      CreatedAt: {
+        type: Date,
+        default: Date.now
+      },
+      updatedAt: {
+        type: Date,
+        default: Date.now
+      }
+})
+const account = mongoose.model('account', UserSchema);
 const user = mongoose.model('user', UserSchema);
 const post = mongoose.model('Post', postSchema);
 
-module.exports = {post, user };
+module.exports = {post, user, account};

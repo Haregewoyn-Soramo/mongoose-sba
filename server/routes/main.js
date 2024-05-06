@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {post, user} = require('../models/post')
+const {post, user, account } = require('../models/post')
 
 router.get('/', async (req, res) =>{
   try{
@@ -11,12 +11,15 @@ router.get('/', async (req, res) =>{
   }
 })
 
-
 router.get('/signin', (req, res) =>{
+  
   res.render('signIn')
 })
 
-
+router.get('/registor', (req, res) =>{
+  
+  res.render('registor')
+})
 
 
 
@@ -220,6 +223,109 @@ router.get('/signin', (req, res) =>{
 // }
 // collectionOfItems();
 
+// function userAccount(){
+//   account.insertMany([
+//     {
+//       username: "john_doe",
+//       email: "john@example.com",
+//       password: "hashedpassword123",
+//       profile: {
+//         fullName: "John Doe",
+//         bio: "Hello, I'm John!",
+//         profileImage: "/john_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "jane_smith",
+//       email: "jane@example.com",
+//       password: "hashedpassword456",
+//       profile: {
+//         fullName: "Jane Smith",
+//         bio: "Travel enthusiast | Nature lover",
+//         profileImage: "/jane_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "alex_jones",
+//       email: "alex@example.com",
+//       password: "hashedpassword789",
+//       profile: {
+//         fullName: "Alex Jones",
+//         bio: "Software Engineer | Tech Enthusiast",
+//         profileImage: "/alex_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "emily_williams",
+//       email: "emily@example.com",
+//       password: "hashedpasswordabc",
+//       profile: {
+//         fullName: "Emily Williams",
+//         bio: "Artist | Creative mind",
+//         profileImage: "/emily_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "michael_brown",
+//       email: "michael@example.com",
+//       password: "hashedpassworddef",
+//       profile: {
+//         fullName: "Michael Brown",
+//         bio: "Fitness enthusiast | Health coach",
+//         profileImage: "/michael_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "sarah_adams",
+//       email: "sarah@example.com",
+//       password: "hashedpasswordghi",
+//       profile: {
+//         fullName: "Sarah Adams",
+//         bio: "Food lover | Recipe developer",
+//         profileImage: "/sarah_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     },
+//     {
+//       username: "chris_evans",
+//       email: "chris@example.com",
+//       password: "hashedpasswordjkl",
+//       profile: {
+//         fullName: "Chris Evans",
+//         bio: "Actor | Marvel fan",
+//         profileImage: "/chris_profile_image.jpg"
+//       },
+//       followers: [],
+//       createdAt: new Date(),
+//       updatedAt: new Date()
+//     }
+//   ])
+//   .then(data =>{
+//     console.log("the data inserted")
+//   })
+//   .catch(error =>{
+//     console.log('error occured', error)
+//   })
+// }
+
+// userAccount()
 
 
 
