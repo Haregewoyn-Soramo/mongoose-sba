@@ -1,0 +1,113 @@
+
+
+<style>
+
+  body{
+     display: flex;
+     margin: 0;
+     padding: 0;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     /* background: url('/img/bg.jpeg') no-repeat center / cover; ; */
+     position: relative; 
+     z-index: 1; 
+   } 
+   .signInContainer{
+     width: 1200px;
+     height: 600px;
+     /* overflow: hidden;
+     background: url('/img/mainbg.webp') no-repeat center / cover; ;
+     border-radius: 10px;
+     box-shadow: 3px 10px 20px rgb(54, 54, 54); */
+     display: flex;
+     gap: 60px;
+     padding: 50px;
+    align-items: center;
+    justify-content: center;
+   }
+   .login{
+     display: flex;
+     width:50%;
+     height: 100%;
+     background: url('/img/green.webp') no-repeat center / cover;
+     border-radius: 10px;
+     box-shadow: 5px 5px 20px rgb(50, 49, 49);
+     align-items: center;
+     justify-content: center;
+     transform: translateY(-140px);
+    
+   }
+
+   .signUp{
+     display: flex;
+     width:50%;
+     height: 100%;
+     background: url('/img/bg4.jpeg') no-repeat center / cover;
+     border-radius: 10px;
+     box-shadow: 5px 5px 20px rgb(50, 49, 49);
+     padding: 20px;
+     align-items: center;
+     justify-content: center;
+     transition: .5s ease-in-out;
+   }
+   input{
+     height: 30px;
+     width: 100%;
+     border-radius: 5px;
+     display: block;
+     margin: 7px 0;
+     border: none;
+     padding: 3px 3px 0px 7px;
+     transition: .5s ease-in-out;
+   }
+   button{
+     margin-left: 0;
+     margin-right: 0;
+     border-radius: 3px;
+     border: none;
+     padding: 3px;
+     background-color: #89CFF0;
+     color: white;
+     cursor: pointer;
+     font-weight: 500;
+     margin-left: 30%; 
+   }
+   label{
+     font-weight: 500;
+     justify-content: center;
+     display: flex;
+     cursor: pointer;
+     transition: .5s ease-in-out;
+     color: azure;
+   }
+  </style>
+
+
+<div class="signInContainer">
+ <!-- <div>
+   <input type="checkbox" id="check" aria-hidden="true">
+ </div> -->
+ <div class="login">
+   <form action="">
+     <label for="check" aria-hidden="true" style="color: #007A74;"> Log In</label>
+     <input type="email" name="email" placeholder="Enter email" required>
+     <input type="password" name="password" placeholder="Enter password" required>
+     <button style="background-color: #007A74;">Log In</button>
+     <!-- <button style="background-color: #007A74; width: 300px;">Log In</button>
+     <button style="background-color: #007A74; width: 300px;">Sign UP</button> -->
+   </form>
+ </div>
+ <div class="signUp">
+   <form action="">
+     <label for="check" aria-hidden="true" style="color: #FACA16;"> Sign Up</label>
+     <input type="text" name="text" placeholder="Enter user name" required>
+     <input type="email" name="email" placeholder="Enter email" required>
+     <input type="password" name="password" placeholder="Enter password" required>
+     <button style="background-color: #FACA16;">Sign Up</button>
+   </form>
+ </div>
+</div>
+
+
+
