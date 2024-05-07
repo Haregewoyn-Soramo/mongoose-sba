@@ -1,98 +1,116 @@
-const express = require('express');
-const router = express.Router();
-const {post, user, account, comment } = require('../models/post');
-const { render } = require('ejs');
-const bcrypt = require('bcrypt')
+    const express = require('express');
+    const router = express.Router();
+    const {post, user, account, comment } = require('../models/post');
+    const { render } = require('ejs');
+    const bcrypt = require('bcrypt')
 
-router.get('/', async (req, res) =>{
-  try{
-    const collections = await post.find();
-    res.render('home', {collections});
-  }catch(error){
-    console.log('error msg:',error)
-  }
-})
-router.get('/explore', async(req, res) =>{
-  try{
-    const collections = await post.find();
-    res.render('explore', {collections});
-  }catch(error){
-    console.log('error msg:',error)
-  }
-})
-router.get('/explore/:title', async (req, res, next) => {
-  try {
-    const collection = await post.findOne({ title: req.params.title });
-    if (collection) {
-      res.json(collection);
-      console.log(collection)
-    } else {
-      res.status(404).json({ error: 'collection not found' });
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-router.patch('/explore/:title', async (req, res, next) => {
-  try {
-    const collection = await post.findOneAndUpdate(
-      { title: req.params.title },
-      req.body,
-      { new: true }
-    );
-    if (collection) {
-      res.json(collection);
-      console.log(collection)
-    } else {
-      res.status(404).json({ error: 'collection not found' });
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-router.delete('/explore/:title', async (req, res, next) => {
-  try {
-    const collection = await post.findOneAndDelete({ title: req.params.title });
-    if (collection) {
-      res.json(collection);
-      console.log(collection)
-    } else {
-      res.status(404).json({ error: 'collection not found' });
-    }
-  } catch (error) {
-    next(error);
-  }
-});
-
-
+    router.get('/', async (req, res) =>{
+      try{
+        const collections = await post.find();
+        res.render('home', {collections});
+      }catch(error){
+        console.log('error msg:',error)
+      }
+    })
+    router.get('/explore', async(req, res) =>{
+      try{
+        const collections = await post.find();
+        res.render('explore', {collections});
+      }catch(error){
+        console.log('error msg:',error)
+      }
+    })
+    router.get('/explore/:title', async (req, res, next) => {
+      try {
+        const collection = await post.findOne({ title: req.params.title });
+        if (collection) {
+          res.json(collection);
+          console.log(collection)
+        } else {
+          res.status(404).json({ error: 'collection not found' });
+        }
+      } catch (error) {
+        next(error);
+      }
+    });
+    router.patch('/explore/:title', async (req, res, next) => {
+      try {
+        const collection = await post.findOneAndUpdate(
+          { title: req.params.title },
+          req.body,
+          { new: true }
+        );
+        if (collection) {
+          res.json(collection);
+          console.log(collection)
+        } else {
+          res.status(404).json({ error: 'collection not found' });
+        }
+      } catch (error) {
+        next(error);
+      }
+    });
+    router.delete('/explore/:title', async (req, res, next) => {
+      try {
+        const collection = await post.findOneAndDelete({ title: req.params.title });
+        if (collection) {
+          res.json(collection);
+          console.log(collection)
+        } else {
+          res.status(404).json({ error: 'collection not found' });
+        }
+      } catch (error) {
+        next(error);
+      }
+    });
 
 
 
-router.get('/create', (req, res) =>{
-   res.render('create')
-})
 
 
-router.get('/user', async(req, res)=>{
-  try{
-  const collections = await user.find();
-  res.render('user', {collections});
-  }catch(error){
-    console.log('error msg:',error)
-  }
-})
+    router.get('/create', (req, res) =>{
+      res.render('create')
+    })
 
-router.get('/user/:id', async function(req, res){
-  try {
-    const userId = req.params.id;
-    const userData = await user.findById(userId);
-    res.json(userData);
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Server Error' });
-  }
-});
 
+    router.get('/user', async(req, res)=>{
+      try{
+      const collections = await user.find();
+      res.render('user', {collections});
+      }catch(error){
+        console.log('error msg:',error)
+      }
+    })
+
+    router.get('/user/:id', async function(req, res){
+      try {
+        const userId = req.params.id;
+        const userData = await user.findById(userId);
+        res.json(userData);
+      } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Server Error' });
+      }
+    });
+    router.post('/signIn', async function(req, res) {
+      try {
+        const userEmail = req.body.email
+        const login = await user.findOne(userEmail);
+        if (login) {
+          const passwordMatch = await bcrypt.compare(req.body.password, login.password);
+          if (passwordMatch) {
+            res.redirect('/explore');
+          } else {
+            res.redirect('/');
+          }
+        } else {
+          res.redirect('/');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        res.redirect('/');
+      }
+    });
  
 
 router.get('/signin', (req, res)=>{
