@@ -1,61 +1,19 @@
-<style>
-  .collections{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/styles.css">
 
-  }
-  .collections li{
-    list-style:none;
-    flex-basis: calc(33.3%-10px);
-    max-width: calc(33.3%-10px);
-    border-radius: 10px;
-    overflow: hidden;
-    
-  }
-
-  .collections li img{
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  img:hover{
-     
-  }
-  .title{
-    margin: 5px 0;
-  }
-
-  @media only screen and (min-width:768px) {
-    .collections li{
-      flex-basis: calc(25%-15px);
-      flex-basis: calc(25%-15px);
-    }
-  }
-</style>
-
-<div class="collections">
-  <ul class="gallery">
-
-     <% collections.forEach(item => { %>
-
-      <li>
-        <a href="/explore<%= item._id %>">
-        <img src="<%= item.image %>" alt="<%= item.title %>">
-        <span class="title"><%= item.title %></span>
-        <a href="#"><p><%= item.description %></p></a>
-         <p><%= item.category %></p>
-         <p><%= item.CreatedAt %></p>
-        </a>
-      </li>
-      
-     <% }) %>
-  </ul>
-  <a href="#">&lt; View all collections</a>
-</div>
+ </head>
+ <body style="background-image: url('/img/pexels-brett-sayles-3797928.jpg'); background-size: cover;"  >
+  <div class="home-page" style="text-align: center; margin-top: 300px; margin-bottom: 200px;">
+  <h1 style=" color: white; font-weight: 700; font-size: 30px;"> Wel Come To Our Website</h1>
+  <P style="color: white; font-weight: 500; font-size: 20px;"><span>Enjoy Exploring Our Content!</span></P>
+  </div>
+ </body>
+ </html>
+ 
+ 
 

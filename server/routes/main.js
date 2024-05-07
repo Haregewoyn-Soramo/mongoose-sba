@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {post, user, account } = require('../models/post')
+const {post, user, account, comment } = require('../models/post');
+const { render } = require('ejs');
 
 router.get('/', async (req, res) =>{
   try{
@@ -10,34 +11,22 @@ router.get('/', async (req, res) =>{
     console.log('error msg:',error)
   }
 })
-
-router.get('/signin', (req, res) =>{
-  
-  res.render('signIn')
-})
-
-router.get('/registor', (req, res)=>{
-  res.render('registor')
-})
-
-router.post('/registor',async (req, res) =>{
+router.get('/explore', async(req, res) =>{
   try{
-    const newUser = new User(req.body)
-    await newUser.save()
-    res.render('user')
+    const collections = await post.find();
+    res.render('explore', {collections});
   }catch(error){
-    console.log('error creating account:',error)
-    res.status(500).send('Server Error')
+    console.log('error msg:',error)
   }
 })
 
-router.get('/user', (req, res) =>{
-  
-  res.render('user')
+router.get('/create', (req, res) =>{
+   res.render('create')
 })
 
-
-
+router.get('/signin', (req, res)=>{
+  res.render('signIn')
+})
 
 
 

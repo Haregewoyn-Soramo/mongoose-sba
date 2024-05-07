@@ -1,0 +1,71 @@
+<style>
+  body{
+    color: #ff5733; 
+    width: 100%;
+     height: 100vh;
+  }
+  .gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+  }
+   li{
+    list-style:none;
+    flex-basis: calc(25%-10px);
+    max-width: calc(25%-10px);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gallery li img{
+    width: 100%;
+    height: auto;
+    /* display: block; */
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  .gallery li:hover img{
+    filter: brightness(70%);
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+ .title{
+  font-weight: 500;
+  font-size: 24px;
+ }
+
+  @media only screen and (min-width:768px) {
+    .gallery li{
+      flex-basis: calc(25%-15px);
+      flex-basis: calc(25%-15px);
+    }
+  }
+</style>
+
+<div class="collections">
+  <ul>
+
+     <% collections.forEach(item => { %>
+     <div class="gallery">
+      <li>
+        <a href="/explore<%= item._id %>">
+        <img src="<%= item.image %>" alt="<%= item.title %>">
+        <span class="title"><%= item.title %></span>
+         <p><%= item.category %></p>
+         <p><%= item.CreatedAt %></p>
+        </a>
+      </li>
+    </div>
+      
+     <% }) %>
+  </ul>
+</div>

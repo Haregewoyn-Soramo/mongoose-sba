@@ -1,4 +1,4 @@
-<style>
+ <style>
   .createForm{
     margin: auto;
     width: 400px;
@@ -39,14 +39,15 @@
 <div class="createForm">
    <h2 style="margin-bottom: 40px; text-align: center; color:crimson;">Create Account</h2>
   <form class="inputForm" action="/home" method="post">
-   <label for="name">User Name:</label>
+   <label for="name">Catagory:</label>
    <input type="text" id="name" required>
-   <label for="email" > Email:</label>
-   <input type="email" id="email" required>
-   <label for="password" > Password:</label>
-   <input type="password" id="password" required>
+   <label for="title" > Title:</label>
+   <input type="text" id="title" required>
+   <label for="description" > Description:</label>
+   <input type="password" id="description" required>
+   <label for="description" > Description:</label>
+   <input type="password" id="description" required>
    <button class="createBtn" type="submit" name="btn">Submit</button>
+   <input id="createBtn" style="border: none;" type="file" name="image" required accept="image/*" >
+   <button style="border-radius: 50%; border: none;background-color: crimson;width: 50px;"> <a style="text-decoration: none; color: white;"">
   </form>
-  <!-- <button style="border-radius: 50%; border: none;background-color: crimson;width: 50px;"> <a style="text-decoration: none; color: white;font-weight: 500;" href="/user">Usre</a></button> -->
- 
-</div>

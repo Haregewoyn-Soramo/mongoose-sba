@@ -100,8 +100,32 @@ const accountSchema = new Schema({
         default: Date.now
       }
 })
+
+const userComment = new Schema({
+  user:{
+    type:Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+
+
+const comment = mongoose.model('comment', userComment)
 const account = mongoose.model('account', UserSchema);
 const user = mongoose.model('user', UserSchema);
 const post = mongoose.model('Post', postSchema);
 
-module.exports = {post, user, account};
+module.exports = {post, user, account, comment};
