@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {post, user, account, comment } = require('../models/post');
 const { render } = require('ejs');
+const bcrypt = require('bcrypt')
 
 router.get('/', async (req, res) =>{
   try{
@@ -19,21 +20,58 @@ router.get('/explore', async(req, res) =>{
     console.log('error msg:',error)
   }
 })
+router.get('/explore/:title', async (req, res, next) => {
+  try {
+    const collection = await post.findOne({ title: req.params.title });
+    if (collection) {
+      res.json(collection);
+      console.log(collection)
+    } else {
+      res.status(404).json({ error: 'collection not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+router.patch('/explore/:title', async (req, res, next) => {
+  try {
+    const collection = await post.findOneAndUpdate(
+      { title: req.params.title },
+      req.body,
+      { new: true }
+    );
+    if (collection) {
+      res.json(collection);
+      console.log(collection)
+    } else {
+      res.status(404).json({ error: 'collection not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+router.delete('/explore/:title', async (req, res, next) => {
+  try {
+    const collection = await post.findOneAndDelete({ title: req.params.title });
+    if (collection) {
+      res.json(collection);
+      console.log(collection)
+    } else {
+      res.status(404).json({ error: 'collection not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+
+
 
 router.get('/create', (req, res) =>{
    res.render('create')
 })
 
-router.post('/create', async(req, res) =>{
-  try{
-    const newProduct = new product(req.body)
-    await newProduct.save()
-    const collections = await post.insetOne(newPOst);
-    res.render('explore')
-  }catch(error){
-    console.log('error msg:',error)
-  }
-})
 
 router.get('/user', async(req, res)=>{
   try{
