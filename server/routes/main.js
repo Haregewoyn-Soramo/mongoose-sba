@@ -16,11 +16,25 @@ router.get('/signin', (req, res) =>{
   res.render('signIn')
 })
 
-router.get('/registor', (req, res) =>{
-  
+router.get('/registor', (req, res)=>{
   res.render('registor')
 })
 
+router.post('/registor',async (req, res) =>{
+  try{
+    const newUser = new User(req.body)
+    await newUser.save()
+    res.render('user')
+  }catch(error){
+    console.log('error creating account:',error)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/user', (req, res) =>{
+  
+  res.render('user')
+})
 
 
 

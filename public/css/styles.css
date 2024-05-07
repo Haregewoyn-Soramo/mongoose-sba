@@ -231,6 +231,9 @@
        body.dark .search-field i{
          color: var(--text-color);
        }
+       .nav-bar:hover{
+        background-color: #58111A;
+       }
  
        @media (max-width: 790px) {
          nav .nav-bar .sidebarOpen{

@@ -22,6 +22,10 @@
     height: auto;
     display: block;
     border-radius: 10px;
+    cursor: pointer;
+  }
+  img:hover{
+     
   }
   .title{
     margin: 5px 0;
@@ -41,11 +45,13 @@
      <% collections.forEach(item => { %>
 
       <li>
+        <a href="/explore<%= item._id %>">
         <img src="<%= item.image %>" alt="<%= item.title %>">
         <span class="title"><%= item.title %></span>
         <a href="#"><p><%= item.description %></p></a>
          <p><%= item.category %></p>
          <p><%= item.CreatedAt %></p>
+        </a>
       </li>
       
      <% }) %>
