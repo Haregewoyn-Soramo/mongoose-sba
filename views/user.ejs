@@ -1,1 +1,112 @@
-<h4>user</h4>
+<style>
+  body{
+    color: #ff5733; 
+    width: 100%;
+     height: 100vh;
+  }
+  .gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+  }
+   li{
+    list-style:none;
+    flex-basis: calc(25%-10px);
+    max-width: calc(25%-10px);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .createForm{
+    margin: auto;
+    width: 400px;
+    height: 600px;
+    margin-top: 160px;
+    cursor: pointer;
+  }
+   
+ 
+   input, .createBtn{
+    display: block;
+    width: 90%;
+    height: 50px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: all .4s ease-in-out; 
+   }
+   .createBtn:hover{
+     background-color: #58111A ;
+     color: white;
+   }
+   label, .createBtn{
+    font-weight: 500;
+   }
+  .createBtn{
+    background-color: crimson;
+    color: white;
+    margin-top: 40px;
+  }
+
+  .gallery li img{
+    width: 100%;
+    height: auto;
+    /* display: block; */
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  .gallery li:hover img{
+    filter: brightness(70%);
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+ .title{
+  font-weight: 500;
+  font-size: 24px;
+ }
+
+  @media only screen and (min-width:768px) {
+    .gallery li{
+      flex-basis: calc(25%-15px);
+      flex-basis: calc(25%-15px);
+    }
+  }
+</style>
+
+<div class="collections">
+  <ul>
+
+     <% collections.forEach(user => { %>
+     <div class="gallery">
+      <li>
+        <a href="/explore<%= user._id %>">
+        <span class="title"><%= user.username %></span>
+         <p><%= user.email%></p>
+         <p><%= user.CreatedAt %></p>
+        </a>
+      </li>
+    </div> 
+     <% }) %>
+  </ul>
+</div>
+<div class="createForm">
+  <h2 style="margin-bottom: 40px; text-align: center; color:crimson;">Delete Account</h2>
+ <form class="inputForm" action="/home" method="post">
+  <label for="name">User Name:</label>
+  <input type="text" id="name" required>
+  <label for="email" > Email:</label>
+  <input type="email" id="email" required>
+  <label for="password" > Password:</label>
+  <input type="password" id="password" required>
+  <button class="createBtn" type="submit" name="btn">Delete</button>
+ </form>

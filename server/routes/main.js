@@ -24,6 +24,39 @@ router.get('/create', (req, res) =>{
    res.render('create')
 })
 
+router.post('/create', async(req, res) =>{
+  try{
+    const newProduct = new product(req.body)
+    await newProduct.save()
+    const collections = await post.insetOne(newPOst);
+    res.render('explore')
+  }catch(error){
+    console.log('error msg:',error)
+  }
+})
+
+router.get('/user', async(req, res)=>{
+  try{
+  const collections = await user.find();
+  res.render('user', {collections});
+  }catch(error){
+    console.log('error msg:',error)
+  }
+})
+
+router.get('/user/:id', async function(req, res){
+  try {
+    const userId = req.params.id;
+    const userData = await user.findById(userId);
+    res.json(userData);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
+ 
+
 router.get('/signin', (req, res)=>{
   res.render('signIn')
 })
