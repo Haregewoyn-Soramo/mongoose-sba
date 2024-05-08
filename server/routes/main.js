@@ -29,47 +29,74 @@ router.get('/explore/:title', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-    router.post('/express', (req, res)=>{
-    const newPost = new Post({
-    category: 'example_category',
-    title: 'example_title',
-    description: 'example_description',
-    image: 'example_image_url'
-    });
-    newPost.save()
+router.post('/explore', (req, res) => {
+  const { category, title, description, image } = req.body;
+  const newPost = new post({
+    category,
+    title,
+    description,
+    image
+  });
+
+  // Save the new post to the database
+  newPost.save()
     .then(savedPost => {
       console.log('Post saved successfully:', savedPost);
+      res.status(201).json(savedPost);
     })
     .catch(error => {
       console.error('Error saving post:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
     });
+});
+router.patch('/explore/:title', async (req, res) => {
+  const postTitle = req.params.title;
+  const { category, title, description, image } = req.body;
+  const update = {
+    category,
+    title,
+    description,
+    image,
+    updatedAt: Date.now()
+  };
 
-})
-
-
-
-
-router.get('/create', (req, res) =>{
-   res.render('create')
-})
-
-router.get('/user', async(req, res) =>{
-  try{
-   const collections = await user.find();
-    res.render('explore', {collections});
-  }catch(error){
-    console.log('error msg:',error)
+  try {
+    const updatedPost = await post.findOneAndUpdate({ title: postTitle }, update, { new: true });
+    if (!updatedPost) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+    console.log('Post updated successfully:', updatedPost);
+    res.json(updatedPost);
+  } catch (error) {
+    console.error('Error updating post:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-})
+});
 
+  
 
-
-
-
-
-
-
-
+  router.delete('/explore/:title', async (req, res) => {
+    const postTitle = req.params.title;
+    try {
+      const deletedPost = await post.findOneAndDelete({ title: postTitle });
+      if (!deletedPost) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+      console.log('Post deleted successfully:', deletedPost);
+      res.json({ message: 'Post deleted successfully', deletedPost });
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  router.get('/user', async(req, res) =>{
+    try{
+      const collections = await user.find();
+      res.render('user', {collections});
+    }catch(error){
+      console.log('error msg:',error)
+    }
+  })
 
 
 
